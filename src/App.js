@@ -1,24 +1,68 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React,{useEffect,useState} from 'react';
+import { Route,Routes } from "react-router-dom";
+import CreatePost from './CreatePost';
+import PostsContainer from './PostsContainer';
+import ViewPost from './ViewPost';
+// import posts from "./db.json"
 
 function App() {
+  const [postsState, setPostsState] = useState([])
+
+  useEffect(()=>{
+    fetch("http://localhost:3000/posts")
+    .then(r=>r.json())
+    .then(data=>setPostsState(data))
+  },[])
+
+  function getFormData(value){
+    setPostsState([...postsState, value])
+  }
+
+  function onLikePost(value){
+    const updateItem = postsState.map((post)=>{
+      if(post.id===value.id){
+        return value
+      } else {
+        return post
+      }
+    })
+
+    setPostsState(updateItem)
+  }
+
+  function deleteItem(value){
+    fetch(`http://localhost:3000/posts/${value}`, 
+    {
+      method: 'DELETE',
+  })
+  .then(r=>r.json())
+  fetch("http://localhost:3000/posts")
+    .then(r=>r.json())
+    .then(data=>setPostsState(data))
+}
+  
+  const filteredPostsData = postsState.filter(item => item)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Navbar /> */}
+      <Routes>
+          <Route path='/item/:id' element={<ViewPost />}></Route>
+          <Route path="/" element={
+            <div className='homePage'>
+            <CreatePost sendFormData={getFormData} />
+            <div className='blogPage'>
+              <PostsContainer getLikedPost = {onLikePost} getDeleteData={deleteItem} posts = {filteredPostsData} />
+            </div>
+            </div>
+          }>
+          </Route>
+      </Routes>
+      
+      
+    </>
   );
 }
 

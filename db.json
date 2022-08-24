@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB79u9YX4RhirrfRase6bLsDXurc4do5b9r9p_IPVKa1tKo9bqN4wGsH9JqZtZZUI-8DY&usqp=CAU",
+      "postTitle": "My new Blog",
+      "postBody": "This is my new blog This is my new blog This is my new blog This is my new blog ",
+      "date": "Sun Aug 21 2022",
+      "like": 8
+    },
+    {
+      "id": 2,
+      "img": "https://blog.hubspot.com/hubfs/GettyImages-974683580.jpg",
+      "postTitle": "My new Blog 2",
+      "postBody": "This is my new blog 2 This is my new blog2 This is my new blog2 This is my new blog2 ",
+      "date": "Mon Aug 22 2022",
+      "like": 20
+    },
+    {
+      "postTitle": "What is a blog",
+      "postBody": "Often readers ask us about what is a blog, and how is it different from a website?\n\nIf you are thinking about starting a blog or a website, then understanding these terms will help you meet your goals.\n\nIn this beginner’s guide, we will explain what is a blog, and what’s the difference between blog vs websites. We will also talk about usage scenarios, with real-world examples, and their benefits.",
+      "date": "Wed Aug 24 2022",
+      "like": 3,
+      "img": "https://cdn3.wpbeginner.com/wp-content/uploads/2019/03/how-blog-is-different-from-website-og.png",
+      "id": 6
+    }
+  ]
+}

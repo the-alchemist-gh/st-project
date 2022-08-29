@@ -11,7 +11,7 @@ function App() {
   const [postsState, setPostsState] = useState([])
 
   useEffect(()=>{
-    fetch("http://localhost:3000/posts")
+    fetch("https://swapup-api.herokuapp.com/st")
     .then(r=>r.json())
     .then(data=>setPostsState(data))
   },[])
@@ -33,12 +33,12 @@ function App() {
   }
 
   function deleteItem(value){
-    fetch(`http://localhost:3000/posts/${value}`, 
+    fetch(`https://swapup-api.herokuapp.com/st/${value}`, 
     {
       method: 'DELETE',
   })
   .then(r=>r.json())
-  fetch("http://localhost:3000/posts")
+  fetch("https://swapup-api.herokuapp.com/st")
     .then(r=>r.json())
     .then(data=>setPostsState(data))
 }

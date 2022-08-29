@@ -6,7 +6,7 @@ function ViewPost(){
   const {id} = useParams();
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/posts/${id}`)
+    fetch(`https://swapup-api.herokuapp.com/st/${id}`)
     .then(r=>r.json())
     .then(data=>setPostDetail(data))
   },[id])

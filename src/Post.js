@@ -10,7 +10,7 @@ function Post({post, sendDeleteData, sendLikedPost}){
   }
 
   function handleLike(){
-    fetch(`http://localhost:3000/posts/${id}`,{
+    fetch(`https://swapup-api.herokuapp.com/st/${id}`,{
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

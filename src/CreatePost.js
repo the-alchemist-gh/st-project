@@ -20,7 +20,7 @@ function CreatePost({sendFormData}){
       img: formData.img
     }
     setFormData(newFormData)
-    fetch("http://localhost:3000/posts",
+    fetch("https://swapup-api.herokuapp.com/st",
     {
       method: "POST",
       headers: {
